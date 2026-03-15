@@ -52,3 +52,18 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Node
+node_modules/
+npm-debug.log
+
+# IDE
+.vs/
+.idea/
+*.user
+.DS_Store
+Thumbs.db
+
+# AdminLTE downloaded assets (download separately - see wwwroot/adminlte/README.md)
+CleanMvcApp.Web/wwwroot/adminlte/dist/
+CleanMvcApp.Web/wwwroot/adminlte/plugins/
