@@ -1,0 +1,111 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>Welcome</h3>
+                <p>Logged in as @User.Identity?.Name</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <a asp-controller="Product" asp-action="Index" class="small-box-footer">
+                View Products <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>Products</h3>
+                <p>Manage your product catalog</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-box"></i>
+            </div>
+            <a asp-controller="Product" asp-action="Index" class="small-box-footer">
+                Go to Products <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>Admin</h3>
+                    <p>Full CRUD access enabled</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <a asp-controller="Product" asp-action="Create" class="small-box-footer">
+                    Add Product <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+    }
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3>.NET 8</h3>
+                <p>Clean Layered Architecture</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+                CleanMvcApp v1.0 <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-info-circle mr-2"></i>System Information
+                </h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <th style="width:200px">Framework</th>
+                            <td>.NET 8 / ASP.NET Core MVC</td>
+                        </tr>
+                        <tr>
+                            <th>Architecture</th>
+                            <td>Clean Layered (Controller → Service → Repository → DbContext)</td>
+                        </tr>
+                        <tr>
+                            <th>Authentication</th>
+                            <td>ASP.NET Core Identity (Custom UI)</td>
+                        </tr>
+                        <tr>
+                            <th>UI Template</th>
+                            <td>AdminLTE 3 + Bootstrap 5</td>
+                        </tr>
+                        <tr>
+                            <th>ORM</th>
+                            <td>Entity Framework Core (Code First)</td>
+                        </tr>
+                        <tr>
+                            <th>Logged In User</th>
+                            <td>@User.Identity?.Name (@(User.IsInRole("Admin") ? "Admin" : "User"))</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
