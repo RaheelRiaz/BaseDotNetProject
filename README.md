@@ -57,15 +57,17 @@ xcopy /E /I node_modules\admin-lte wwwroot\adminlte
 
 ### 3. Configure the database
 
-Edit `CleanMvcApp.Web/appsettings.json`:
+Edit `CleanMvcApp.Web/appsettings.json` and set your own connection string:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=CleanMvcAppDb;Trusted_Connection=True;TrustServerCertificate=True;"
+    "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USERNAME;Password=YOUR_PASSWORD;TrustServerCertificate=True;"
   }
 }
 ```
+
+> **Note:** Never commit real credentials to source control. Use `appsettings.Development.json` (which is git-ignored) or environment variables for sensitive values.
 
 ### 4. Install EF Core CLI tool (once per machine)
 

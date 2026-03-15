@@ -53,6 +53,10 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
+# Local development settings with real credentials — never commit these
+CleanMvcApp.Web/appsettings.Development.json
+appsettings.Development.json
+
 # Node
 node_modules/
 npm-debug.log
