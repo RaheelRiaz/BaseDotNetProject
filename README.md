@@ -62,7 +62,7 @@ Edit `CleanMvcApp.Web/appsettings.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=CleanMvcAppDb;Trusted_Connection=True;"
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=CleanMvcAppDb;Trusted_Connection=True;TrustServerCertificate=True;"
   }
 }
 ```
