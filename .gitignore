@@ -63,7 +63,3 @@ npm-debug.log
 *.user
 .DS_Store
 Thumbs.db
-
-# AdminLTE downloaded assets (download separately - see wwwroot/adminlte/README.md)
-CleanMvcApp.Web/wwwroot/adminlte/dist/
-CleanMvcApp.Web/wwwroot/adminlte/plugins/
