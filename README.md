@@ -67,15 +67,22 @@ Edit `CleanMvcApp.Web/appsettings.json`:
 }
 ```
 
-### 4. Apply migrations
+### 4. Install EF Core CLI tool (once per machine)
 
 ```bash
-cd CleanMvcApp.Web
-dotnet ef migrations add InitialCreate --project ../CleanMvcApp.Infrastructure
-dotnet ef database update
+dotnet tool install --global dotnet-ef
 ```
 
-### 5. Run
+> If already installed and you get a version mismatch, run: `dotnet tool update --global dotnet-ef`
+
+### 5. Apply migrations
+
+```bash
+dotnet-ef migrations add InitialCreate --project CleanMvcApp.Infrastructure --startup-project CleanMvcApp.Web
+dotnet-ef database update --project CleanMvcApp.Infrastructure --startup-project CleanMvcApp.Web
+```
+
+### 6. Run
 
 ```bash
 dotnet run --project CleanMvcApp.Web
@@ -496,13 +503,8 @@ Set layout on all: `Layout = "_AdminLayout";`
 ### Step 13 — Create and apply the migration
 
 ```bash
-dotnet ef migrations add AddCategoryTable \
-  --project CleanMvcApp.Infrastructure \
-  --startup-project CleanMvcApp.Web
-
-dotnet ef database update \
-  --project CleanMvcApp.Infrastructure \
-  --startup-project CleanMvcApp.Web
+dotnet-ef migrations add AddCategoryTable --project CleanMvcApp.Infrastructure --startup-project CleanMvcApp.Web
+dotnet-ef database update --project CleanMvcApp.Infrastructure --startup-project CleanMvcApp.Web
 ```
 
 ---
@@ -522,7 +524,7 @@ dotnet ef database update \
 [ ] Controller→ CleanMvcApp.Web/Controllers/CategoryController.cs
 [ ] Views     → CleanMvcApp.Web/Views/Category/ (Index, Create, Edit, Details, Delete)
 [ ] Sidebar   → Add nav-item in _Sidebar.cshtml
-[ ] Migration → dotnet ef migrations add + database update
+[ ] Migration → dotnet-ef migrations add + dotnet-ef database update
 ```
 
 ---
@@ -530,11 +532,6 @@ dotnet ef database update \
 ## EF Core Migrations (from solution root)
 
 ```bash
-dotnet ef migrations add <MigrationName> \
-  --project CleanMvcApp.Infrastructure \
-  --startup-project CleanMvcApp.Web
-
-dotnet ef database update \
-  --project CleanMvcApp.Infrastructure \
-  --startup-project CleanMvcApp.Web
+dotnet-ef migrations add <MigrationName> --project CleanMvcApp.Infrastructure --startup-project CleanMvcApp.Web
+dotnet-ef database update --project CleanMvcApp.Infrastructure --startup-project CleanMvcApp.Web
 ```
